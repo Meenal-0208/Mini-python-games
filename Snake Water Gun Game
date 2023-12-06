@@ -1,0 +1,50 @@
+import random
+def game():
+    player = input("Enter your choice(snake/water/gun): ")
+    randNo = random.randint(1, 3)
+    if randNo == 1:
+        comp = 'snake'
+    elif randNo == 2:
+        comp = 'water'
+    else:
+        comp = 'gun'
+    print(f"You chose {player}")
+    print(f"Computer chose {comp}")
+    if player=='snake':
+        if comp=='snake':
+            return 0
+        elif comp=='water':
+            return 1
+        elif comp=='gun':
+            return -1
+    if player=='water': 
+        if comp== 'snake': 
+            return -1
+        elif comp=='water': 
+            return 0
+        elif comp=='gun': 
+            return 1
+    if player=='gun':
+        if comp== 'snake':
+            return 1
+        elif comp=='water':
+            return -1
+        elif comp=='gun':
+            return 0
+def outcome (result):
+    if result== 0:
+        print("It's a draw.")
+    elif result == 1: 
+        print("You win.")
+    elif result == -1: 
+        print("You loose.")
+print("WELCOME TO THIS GAME OF SNAKE-WATER-GUN")
+result = game()
+outcome(result)
+while(True):
+    playAgain =int(input("Enter 1 to play and 0 to exit: "))
+    if(playAgain==1):
+        result = game()
+        outcome(result)
+    else:
+        break
