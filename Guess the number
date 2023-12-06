@@ -1,0 +1,20 @@
+import random
+randomNo = random.randint(1,100)
+guess=None
+guesses = 1
+def game(guess,randomNo):
+    print("Wrong guess")
+    if guess<randomNo: 
+        print("Higher number please")
+    elif guess>randomNo: 
+        print("Lower number please")
+print(WELCOME TO THIS GUESSING THE NUMBER GAME)
+while(guess!=randomNo):
+    guess = int(input("Enter your guess(number): "))
+    if guess==randomNo: 
+        print(f"Correct guess")
+        print(f"You took {guesses} guesses")
+        break
+    else:
+        game(guess,randomNo)
+    guesses=int(guesses)+1
